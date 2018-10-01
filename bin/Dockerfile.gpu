@@ -1,19 +1,14 @@
 # FROM defines the base image
 FROM tensorflow/tensorflow:latest-gpu-py3
-MAINTAINER Ankur Gupta
 
-# RUN executes a shell command
-# You can chain multiple commands together with &&
-# A \ is used to split long lines to help with readability
+# tools
 RUN apt-get update && apt-get install -y \
-    # tools
     git \
     python-setuptools \
     python-virtualenv \
     graphviz
 
 # Install keras and theano dependencies not included in
-# https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/docker/Dockerfile.gpu
 RUN pip install -U pip && pip --no-cache-dir install --upgrade \
 		numpy \
 		matplotlib \
