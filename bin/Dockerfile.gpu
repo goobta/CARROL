@@ -1,0 +1,40 @@
+# FROM defines the base image
+FROM tensorflow/tensorflow:latest-gpu-py3
+
+# tools
+RUN apt-get update && apt-get install -y \
+    git \
+    python-setuptools \
+    python-virtualenv \
+    graphviz
+
+# Install keras and theano dependencies not included in
+RUN pip install -U pip && pip --no-cache-dir install --upgrade \
+		numpy \
+		matplotlib \
+    pandas \
+    h5py \
+    pyyaml \
+    virtualenv \
+    graphviz \
+    pydot \
+    keras-tqdm
+
+# Enable the widgetsnbextension for notebook
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+
+# Install  keras
+RUN pip --no-cache-dir install --no-deps \
+    keras \
+    git+https://www.github.com/farizrahman4u/keras-contrib.git
+
+# Set keras backend to tensorflow by default
+ENV KERAS_BACKEND tensorflow
+
+# Add /root/workspace to PYTHONPATH for convenience
+ENV PYTHONPATH /root/workspace:$PYTHONPATH
+
+# Set the working directory
+WORKDIR /root/workspace
+
+CMD jupyter notebook "$@" --allow-root
