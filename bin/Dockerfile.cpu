@@ -18,7 +18,8 @@ RUN pip install -U pip && pip --no-cache-dir install --upgrade \
     virtualenv \
     graphviz \
     pydot \
-    keras-tqdm
+    keras-tqdm \
+		moviepy
 
 # Enable the widgetsnbextension for notebook
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
