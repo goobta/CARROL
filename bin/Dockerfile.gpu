@@ -35,7 +35,15 @@ ENV KERAS_BACKEND tensorflow
 # Add /root/workspace to PYTHONPATH for convenience
 ENV PYTHONPATH /root/workspace:$PYTHONPATH
 
+# Install Colab local runtime support
+RUN pip install jupyter_http_over_ws && \
+	jupyter serverextension enable --py jupyter_http_over_ws
+
 # Set the working directory
 WORKDIR /root/workspace
 
-CMD jupyter notebook "$@" --allow-root
+CMD jupyter notebook \
+	--NotebookApp.allow_origin='https://colab.research.google.com' \
+  --port=8889 \
+  --NotebookApp.port_retries=0 \
+ 	--allow-root
