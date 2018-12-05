@@ -1,10 +1,16 @@
 \section{Conclusion}
 
 In theory, with our method we achieve the best of both worlds: having access to the power of SRCGAN’s for the more important parts of the images we superresolution while saving on computation costs by not training on as much noise. However, due to not having the hardware to train an FCN and using third party libraries, our current end product has to re-calculate various values.
-Our method is also restricted by the limitations of SRCGAN’s. Since SRCGAN’s have a fixed nxn sized input, we have to either upscale or downscale our FCN output in order to pass it to the SRCGAN. Additionally, when we have long or tall subjects, like a giraffe, we need to pass additional background information that we know isn’t our subject into the SRCGAN \ref{fig:giraffe}, resulting in noise when both training and running the SRCGAN.
+Our method is also restricted by the limitations of SRCGAN’s. Since SRCGAN’s
+have a fixed nxn sized input, we have to either upscale or downscale our FCN
+output in order to pass it to the SRCGAN. Additionally, when we have long or
+tall subjects, like a giraffe, we need to pass additional background information
+that we know isn’t our subject into the SRCGAN \ref{fig:giraffe}, resulting in
+noise when both training and running the SRCGAN.
+
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{images/giraffe.png}
+    \includegraphics[width=0.45\textwidth]{images/giraffe.png}
     \caption{An example of an inefficiency with our method. Although the FCN knows the giraffe is bounded within the red box, due to the nature of SRCGAN's we are forced to pass the blue box, essentially wasting computation.}
     \label{fig:giraffe}
 \end{figure}
@@ -13,7 +19,7 @@ Another issue with our method is when multiple subjects overlap. Since we run ou
 
 \begin{figure}
     \centering
-    \includegraphics{images/crossover.png}
+    \includegraphics[width=0.45\textwidth]{images/crossover.png}
     \caption{If the FCN classifies the red area as one class and the blue are as another, the purple area is run through the SRCGAN twice.}
     \label{fig:crossover}
 \end{figure}
