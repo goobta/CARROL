@@ -33,7 +33,31 @@ title = {{The OpenCV Library}},
 year = {2000}
 }
 @techreport{Ledig,
-abstract = {Despite the breakthroughs in accuracy and speed of single image super-resolution using faster and deeper con-volutional neural networks, one central problem remains largely unsolved: how do we recover the finer texture details when we super-resolve at large upscaling factors? The behavior of optimization-based super-resolution methods is principally driven by the choice of the objective function. Recent work has largely focused on minimizing the mean squared reconstruction error. The resulting estimates have high peak signal-to-noise ratios, but they are often lacking high-frequency details and are perceptually unsatisfying in the sense that they fail to match the fidelity expected at the higher resolution. In this paper, we present SRGAN, a generative adversarial network (GAN) for image super-resolution (SR). To our knowledge, it is the first framework capable of inferring photo-realistic natural images for 4× upscaling factors. To achieve this, we propose a perceptual loss function which consists of an adversarial loss and a content loss. The adversarial loss pushes our solution to the natural image manifold using a discriminator network that is trained to differentiate between the super-resolved images and original photo-realistic images. In addition, we use a content loss motivated by perceptual similarity instead of similarity in pixel space. Our deep residual network is able to recover photo-realistic textures from heavily downsampled images on public benchmarks. An extensive mean-opinion-score (MOS) test shows hugely significant gains in perceptual quality using SRGAN. The MOS scores obtained with SRGAN are closer to those of the original high-resolution images than to those obtained with any state-of-the-art method.},
+abstract = {Despite the breakthroughs in accuracy and speed of single image
+	super-resolution using faster and deeper con-volutional neural networks, one
+		central problem remains largely unsolved: how do we recover the finer
+		texture details when we super-resolve at large upscaling factors? The
+		behavior of optimization-based super-resolution methods is principally
+		driven by the choice of the objective function. Recent work has largely
+		focused on minimizing the mean squared reconstruction error. The resulting
+		estimates have high peak signal-to-noise ratios, but they are often lacking
+		high-frequency details and are perceptually unsatisfying in the sense that
+		they fail to match the fidelity expected at the higher resolution. In this
+		paper, we present SRGAN, a generative adversarial network (GAN) for image
+		super-resolution (SR). To our knowledge, it is the first framework capable
+		of inferring photo-realistic natural images for 4× upscaling factors. To
+		achieve this, we propose a perceptual loss function which consists of an
+		adversarial loss and a content loss. The adversarial loss pushes our
+		solution to the natural image manifold using a discriminator network that is
+		trained to differentiate between the super-resolved images and original
+		photo-realistic images. In addition, we use a content loss motivated by
+		perceptual similarity instead of similarity in pixel space. Our deep
+		residual network is able to recover photo-realistic textures from heavily
+		downsampled images on public benchmarks. An extensive mean-opinion-score
+		(MOS) test shows hugely significant gains in perceptual quality using SRGAN.
+		The MOS scores obtained with SRGAN are closer to those of the original
+		high-resolution images than to those obtained with any state-of-the-art
+		method.},
 archivePrefix = {arXiv},
 arxivId = {1609.04802v5},
 author = {Ledig, Christian and Theis, Lucas and Husz{\'{a}}r, Ferenc and Caballero, Jose and Cunningham, Andrew and Acosta, Alejandro and Aitken, Andrew and Tejani, Alykhan and Totz, Johannes and Wang, Zehan and {Shi Twitter}, Wenzhe},
@@ -269,4 +293,12 @@ file = {::},
 keywords = {Atrous Convolution,Conditional Random Fields !,Index Terms-Convolutional Neural Networks,Semantic Segmentation},
 title = {{DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs}},
 url = {http://liangchiehchen.com/projects/}
+}
+@techreport{Molina,
+abstract = {The term super-resolution is typically used in the literature to describe the process of obtaining a high resolution (HR) image or a sequence of HR images from a set of low resolution (LR) observations. This term has been applied primarily to spatial and temporal resolution enhancement. However, intentional pre-processing and downsampling can be applied during encoding and super-resolution techniques to upsample the image can be applied during decoding when video compression is the main objective. In this paper we consider the following three video compression models. The first one simply compresses the sequence using any of the available standard compression methods, the second one pre-processes (without down-sampling) the image sequence before compression, so that post-processing (without upsampling) is applied to the compressed sequence. The third model includes downsampling in the pre-processing stage and the application of a super resolution technique during decoding. In this paper we describe these three models but concentrate on the application of super-resolution techniques as a way to post-process and upsample a compressed video sequences. Experimental results are provided on a wide range of bitrates for two very important applications: format conversion between different platforms and scalable video coding.},
+author = {Molina, R and Katsaggelos, A K and Alvarez, L D and Mateos, J},
+file = {::},
+keywords = {MPEG-4,compression,downsampling,post-processing of com-pressed video sequences,pre-processing of video sequences,scalable video coding,super-resolution},
+title = {{Towards a new video compression scheme using super-resolution}},
+url = {https://pdfs.semanticscholar.org/4524/6d41c45fda222f733660bdac49093d8f859d.pdf}
 }

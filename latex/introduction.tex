@@ -1,1 +1,34 @@
 \section{Introduction}
+
+Super resolution is a classic problem in computer vision involving upscaling a
+low resolution image in order to obtain a clearer or more detailed image which
+has seen a wide range of use from raw image enhancement to feature detection
+within images\cite{Chen,Dong2016,Ledig}. In general, super resolution has been quite successful
+when implemented with a Generative Adversarial Network (GAN)\cite{Chen}. Our goal in
+this paper is to apply this type of super resolution algorithm with an added
+class-conditional feature to various individual subjects in an image to increase
+their visibility.
+
+A problem with current methods of super resolution is that normal GANs and deep
+learning algorithms have a lot of trouble handling images with multiple
+subjects. The output of these algorithms have the possibility of being entirely
+unrecognizable compared to the original image\cite{Goodfellow2017}. 
+Another problem with current
+super resolution approaches is that they operate on an entire image, the issue
+being that the difference in resolution between the foreground and background
+doesn’t necessarily change that much. This means that there will still be the
+same lack of focus on the background in the new image as there was in the
+original. The last problem this paper will address is that common super
+resolution algorithms only use the original image’s pixels as input data to run
+super resolution. While this method has been shown to work quite well, we
+believe it can be improved by adding a class condition.
+
+One of the main decisions we had to make was how to go about building the super
+resolution algorithm. Since our focus isn’t so much the super resolution
+algorithm itself and there has already been extensive research on the
+performance of various algorithms, we did some research to find an algorithm
+that is accepted by the majority of the community as the best for our purposes
+which is a conditional GAN\cite{Chen}. We believe that in employing an SRCGAN with the
+supporting processes described, the product of the complete process will be a
+more meaningful image that puts emphasis on the more important parts of the
+original image.
