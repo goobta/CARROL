@@ -33,7 +33,40 @@ This process is illustrated by Figure \ref{fig:intuition}. By breaking the proce
 
 \subsection{Dataset Selection}
 
+We opted to select datasets with one to three subjects in it in order present
+where our proposed solution would shine. The datasets we selected for training
+were created by splitting open source HD footage frame by frame. This allowed us
+to create large easy to label datasets with ease.
+
 \subsection{Segmentation}
+\subsubsection{Fully Convolutional Network}
+
+Fully Convolutional Network (FCN) is one of the states of the art techniques for
+semantic segmentation. Semantic segmentation \cite{Liu2018} refers to the process of
+associating each pixel in an image with a class label such as animals, roads,
+buildings, etc. FCNs build up on CNN. CNNs are very good for image
+classification data but they do not retain any spacial information with
+convolutions. All the features are detected but their locations in the image are
+not maintained. FCNs improve on this by just having convolutional layers. A
+typical FCN network consists of an encoder block, 1x1 convolutional layer,
+decoder block. The encoder block is pretty much the same as a CNN without the
+fully connected layers. It downsamples the image with each convolution and
+increases the feature maps. 1x1 convolutions are used to change the filter
+dimensionality (either increase it or decrease it) before sending it to the
+decoder block. The decoder block consists of transposed convolutional layers
+often called deconvolutional layers. This part of the network deals with
+upsampling the image to its original size. The output at the end is a image
+associating each pixel with a class.
+
+[Put pictures here]
+
+We decided to use google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
+semantic segmentation on 21 predefined classes. The dataset images are fed into
+this network to get a semantic segmentation output for the backgrounds and
+object of interest. These objects of interest are then cropped out as individual
+images to be fed into the super-resolution algorithm. The intact background is
+passed forwards as well to the further methods.
+
 
 \subsection{Super Resolution}
 \subsubsection{General Adversarial Networks}
