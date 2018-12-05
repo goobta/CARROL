@@ -7,3 +7,5 @@
 *.aux
 *.log
 *.pdf
+
+*.bbl
