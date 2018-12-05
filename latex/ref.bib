@@ -1,0 +1,234 @@
+@techreport{Shelhamer,
+abstract = {Convolutional networks are powerful visual models that yield hierarchies of features. We show that convolutional networks by themselves, trained end-to-end, pixels-to-pixels, improve on the previous best result in semantic segmentation. Our key insight is to build "fully convolutional" networks that take input of arbitrary size and produce correspondingly-sized output with efficient inference and learning. We define and detail the space of fully convolutional networks, explain their application to spatially dense prediction tasks, and draw connections to prior models. We adapt contemporary classification networks (AlexNet, the VGG net, and GoogLeNet) into fully convolutional networks and transfer their learned representations by fine-tuning to the segmentation task. We then define a skip architecture that combines semantic information from a deep, coarse layer with appearance information from a shallow, fine layer to produce accurate and detailed segmentations. Our fully convolutional network achieves improved segmentation of PASCAL VOC (30{\%} relative improvement to 67.2{\%} mean IU on 2012), NYUDv2, SIFT Flow, and PASCAL-Context, while inference takes one tenth of a second for a typical image.},
+archivePrefix = {arXiv},
+arxivId = {1605.06211v1},
+author = {Shelhamer, Evan and Long, Jonathan and Darrell, Trevor},
+eprint = {1605.06211v1},
+file = {::},
+isbn = {1605.06211v1},
+keywords = {Convolutional Networks,Deep Learning,Index Terms-Semantic Segmentation,Transfer Learning !},
+title = {{Fully Convolutional Networks for Semantic Segmentation}},
+url = {https://arxiv.org/pdf/1605.06211.pdf]}
+}
+@techreport{Dong,
+abstract = {As a successful deep model applied in image super-resolution (SR), the Super-Resolution Convolutional Neural Network (SRCNN) [1, 2] has demonstrated superior performance to the previous hand-crafted models either in speed and restoration quality. However, the high computational cost still hinders it from practical usage that demands real-time performance (24 fps). In this paper, we aim at accelerating the current SRCNN, and propose a compact hourglass-shape CNN structure for faster and better SR. We redesign the SRCNN structure mainly in three aspects. First, we introduce a deconvolution layer at the end of the network , then the mapping is learned directly from the original low-resolution image (without interpolation) to the high-resolution one. Second, we reformulate the mapping layer by shrinking the input feature dimension before mapping and expanding back afterwards. Third, we adopt smaller filter sizes but more mapping layers. The proposed model achieves a speed up of more than 40 times with even superior restoration quality. Further, we present the parameter settings that can achieve real-time performance on a generic CPU while still maintaining good performance. A corresponding transfer strategy is also proposed for fast training and testing across different upscaling factors.},
+author = {Dong, Chao and Loy, Chen Change and Tang, Xiaoou},
+file = {::},
+title = {{Accelerating the Super-Resolution Convolutional Neural Network}},
+url = {http://mmlab.ie.cuhk.edu.hk/}
+}
+@techreport{Lukin2006,
+abstract = {Term "super-resolution" is typically used for a high-resolution image produced from several low-resolution noisy observations. In this paper, we consider the problem of high-quality interpolation of a single noise-free image. Several aspects of the corresponding super-resolution algorithm are investigated: choice of regularization term, dependence of the result on initial approximation , convergence speed, and heuristics to facilitate convergence and improve the visual quality of the resulting image.},
+author = {Lukin, Alexey and Krylov, Andrey S and Nasonov, Andrey},
+file = {::},
+keywords = {image interpolation,regularization,super-resolution},
+title = {{Image Interpolation by Super-Resolution}},
+year = {2006}
+}
+@article{Bradski2000,
+author = {Bradski, G},
+journal = {Dr. Dobb's Journal of Software Tools},
+keywords = {bibtex-import},
+title = {{The OpenCV Library}},
+year = {2000}
+}
+@techreport{Ledig,
+abstract = {Despite the breakthroughs in accuracy and speed of single image super-resolution using faster and deeper con-volutional neural networks, one central problem remains largely unsolved: how do we recover the finer texture details when we super-resolve at large upscaling factors? The behavior of optimization-based super-resolution methods is principally driven by the choice of the objective function. Recent work has largely focused on minimizing the mean squared reconstruction error. The resulting estimates have high peak signal-to-noise ratios, but they are often lacking high-frequency details and are perceptually unsatisfying in the sense that they fail to match the fidelity expected at the higher resolution. In this paper, we present SRGAN, a generative adversarial network (GAN) for image super-resolution (SR). To our knowledge, it is the first framework capable of inferring photo-realistic natural images for 4× upscaling factors. To achieve this, we propose a perceptual loss function which consists of an adversarial loss and a content loss. The adversarial loss pushes our solution to the natural image manifold using a discriminator network that is trained to differentiate between the super-resolved images and original photo-realistic images. In addition, we use a content loss motivated by perceptual similarity instead of similarity in pixel space. Our deep residual network is able to recover photo-realistic textures from heavily downsampled images on public benchmarks. An extensive mean-opinion-score (MOS) test shows hugely significant gains in perceptual quality using SRGAN. The MOS scores obtained with SRGAN are closer to those of the original high-resolution images than to those obtained with any state-of-the-art method.},
+archivePrefix = {arXiv},
+arxivId = {1609.04802v5},
+author = {Ledig, Christian and Theis, Lucas and Husz{\'{a}}r, Ferenc and Caballero, Jose and Cunningham, Andrew and Acosta, Alejandro and Aitken, Andrew and Tejani, Alykhan and Totz, Johannes and Wang, Zehan and {Shi Twitter}, Wenzhe},
+eprint = {1609.04802v5},
+file = {::},
+title = {{Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network}},
+url = {https://arxiv.org/pdf/1609.04802.pdf}
+}
+@article{Mirza2014,
+abstract = {Generative Adversarial Nets [8] were recently introduced as a novel way to train generative models. In this work we introduce the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate MNIST digits conditioned on class labels. We also illustrate how this model could be used to learn a multi-modal model, and provide preliminary examples of an application to image tagging in which we demonstrate how this approach can generate descriptive tags which are not part of training labels.},
+archivePrefix = {arXiv},
+arxivId = {1411.1784},
+author = {Mirza, Mehdi and Osindero, Simon},
+eprint = {1411.1784},
+file = {::},
+month = {nov},
+title = {{Conditional Generative Adversarial Nets}},
+url = {http://arxiv.org/abs/1411.1784},
+year = {2014}
+}
+@misc{Golinski2017,
+abstract = {Single Image Super Resolution involves increasing the size of a small image while keeping the attendant drop in quality to a minimum. The task has numerous applications, including in satellite and aerial imaging analysis, medical image processing, compressed image/video enhancement and many more. In this blog post we apply three deep learning models to this problem and discuss their limitations and promising ways to overcome them.},
+author = {Goli{\'{n}}ski, Pawe{\l} and Ka{\'{n}}ska, Katarzyna},
+booktitle = {Deep Sense AI},
+title = {{Using deep learning for Single Image Super Resolution}},
+url = {https://deepsense.ai/using-deep-learning-for-single-image-super-resolution/},
+urldate = {2018-11-14},
+year = {2017}
+}
+@article{Ledig2016,
+abstract = {Despite the breakthroughs in accuracy and speed of single image super-resolution using faster and deeper convolutional neural networks, one central problem remains largely unsolved: how do we recover the finer texture details when we super-resolve at large upscaling factors? The behavior of optimization-based super-resolution methods is principally driven by the choice of the objective function. Recent work has largely focused on minimizing the mean squared reconstruction error. The resulting estimates have high peak signal-to-noise ratios, but they are often lacking high-frequency details and are perceptually unsatisfying in the sense that they fail to match the fidelity expected at the higher resolution. In this paper, we present SRGAN, a generative adversarial network (GAN) for image super-resolution (SR). To our knowledge, it is the first framework capable of inferring photo-realistic natural images for 4x upscaling factors. To achieve this, we propose a perceptual loss function which consists of an adversarial loss and a content loss. The adversarial loss pushes our solution to the natural image manifold using a discriminator network that is trained to differentiate between the super-resolved images and original photo-realistic images. In addition, we use a content loss motivated by perceptual similarity instead of similarity in pixel space. Our deep residual network is able to recover photo-realistic textures from heavily downsampled images on public benchmarks. An extensive mean-opinion-score (MOS) test shows hugely significant gains in perceptual quality using SRGAN. The MOS scores obtained with SRGAN are closer to those of the original high-resolution images than to those obtained with any state-of-the-art method.},
+archivePrefix = {arXiv},
+arxivId = {1609.04802},
+author = {Ledig, Christian and Theis, Lucas and Huszar, Ferenc and Caballero, Jose and Cunningham, Andrew and Acosta, Alejandro and Aitken, Andrew and Tejani, Alykhan and Totz, Johannes and Wang, Zehan and Shi, Wenzhe},
+eprint = {1609.04802},
+file = {::},
+month = {sep},
+title = {{Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network}},
+url = {http://arxiv.org/abs/1609.04802},
+year = {2016}
+}
+@misc{Linder-Noren,
+author = {Linder-Nor{\'{e}}n, Erik},
+booktitle = {Github},
+title = {{Keras implementations of Generative Adversarial Networks}},
+url = {https://github.com/eriklindernoren/Keras-GAN}
+}
+@article{Goodfellow2014,
+abstract = {We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1/2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.},
+archivePrefix = {arXiv},
+arxivId = {1406.2661},
+author = {Goodfellow, Ian J. and Pouget-Abadie, Jean and Mirza, Mehdi and Xu, Bing and Warde-Farley, David and Ozair, Sherjil and Courville, Aaron and Bengio, Yoshua},
+eprint = {1406.2661},
+file = {::},
+month = {jun},
+title = {{Generative Adversarial Networks}},
+url = {http://arxiv.org/abs/1406.2661},
+year = {2014}
+}
+@article{Liu2018,
+author = {Liu, Xiaolong and Deng, Zhidong and Yang, Yuhan},
+doi = {10.1007/s10462-018-9641-3},
+issn = {0269-2821},
+journal = {Artificial Intelligence Review},
+month = {jun},
+title = {{Recent progress in semantic image segmentation}},
+url = {http://link.springer.com/10.1007/s10462-018-9641-3},
+year = {2018}
+}
+@book{Asia-PacificSignalandInformationProcessingAssociation.AnnualSummitandConference2012:Hollywood2012,
+abstract = {Title from PDF cover page (IEEE Xplore, viewed on Mar. 7, 2013).},
+author = {{Asia-Pacific Signal and Information Processing Association. Annual Summit and Conference (2012 : Hollywood}, Calif.) and {Asia-Pacific Signal and Information Processing Association. 2012 Annual Summit and Conference International Organizing Committee.}},
+isbn = {9781467348638},
+publisher = {Asia-Pacific Signal and Information Processing Association, 2012 Annual Summit and Conference International Organizing Committee},
+title = {{2012 conference handbook : Asia-Pacific Signal and Information Processing Association Annual Summit and Conference : December 3-6, 2012, Hollywood, California, USA.}},
+url = {https://ieeexplore.ieee.org/document/6411957},
+year = {2012}
+}
+@techreport{Goodfellow,
+abstract = {We propose a new framework for estimating generative models via an adversar-ial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.},
+archivePrefix = {arXiv},
+arxivId = {1406.2661v1},
+author = {Goodfellow, Ian J and Pouget-Abadie, Jean and Mirza, Mehdi and Xu, Bing and Warde-Farley, David and Ozair, Sherjil and Courville, Aaron and Bengio, Yoshua},
+eprint = {1406.2661v1},
+file = {::},
+title = {{Generative Adversarial Nets}},
+url = {http://www.github.com/goodfeli/adversarial}
+}
+@techreport{Long,
+abstract = {Convolutional networks are powerful visual models that yield hierarchies of features. We show that convolu-tional networks by themselves, trained end-to-end, pixels-to-pixels, exceed the state-of-the-art in semantic segmen-tation. Our key insight is to build "fully convolutional" networks that take input of arbitrary size and produce correspondingly-sized output with efficient inference and learning. We define and detail the space of fully convolu-tional networks, explain their application to spatially dense prediction tasks, and draw connections to prior models. We adapt contemporary classification networks (AlexNet [22], the VGG net [34], and GoogLeNet [35]) into fully convolu-tional networks and transfer their learned representations by fine-tuning [5] to the segmentation task. We then define a skip architecture that combines semantic information from a deep, coarse layer with appearance information from a shallow, fine layer to produce accurate and detailed seg-mentations. Our fully convolutional network achieves state-of-the-art segmentation of PASCAL VOC (20{\%} relative improvement to 62.2{\%} mean IU on 2012), NYUDv2, and SIFT Flow, while inference takes less than one fifth of a second for a typical image.},
+author = {Long, Jonathan and Shelhamer, Evan and Darrell, Trevor},
+file = {::},
+title = {{Fully Convolutional Networks for Semantic Segmentation}},
+url = {https://people.eecs.berkeley.edu/{~}jonlong/long{\_}shelhamer{\_}fcn.pdf}
+}
+@techreport{Krizhevsky,
+abstract = {We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 37.5{\%} and 17.0{\%} which is considerably better than the previous state-of-the-art. The neural network, which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and three fully-connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of the convolution operation. To reduce overfitting in the fully-connected layers we employed a recently-developed regularization method called "dropout" that proved to be very effective. We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3{\%}, compared to 26.2{\%} achieved by the second-best entry.},
+author = {Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
+file = {::},
+title = {{ImageNet Classification with Deep Convolutional Neural Networks}},
+url = {http://code.google.com/p/cuda-convnet/}
+}
+@article{Jaswal2014,
+abstract = {Deep Learning has emerged as a new area in machine learning and is applied to a number of signal and image applications.The main purpose of the work presented in this paper, is to apply the concept of a Deep Learning algorithm namely, Convolutional neural networks (CNN) in image classification. The algorithm is tested on various standard datasets, like remot e sensing data of aerial images (UC Merced Land Use Dataset) and scene images from SUN database. The performance of the algorithm is evaluated based on the quality metric known as Mean Squared Error (MSE) and classification accuracy. The graphical representation of the experimental results is given on the basis of MSE against the number of training epochs. The experimental result analysis based on the quality metrics and the graphical representation proves that the algorithm (CNN) gives fairly good classification accuracy for all the tested datasets.},
+author = {Jaswal, Deepika and Soman, K P},
+file = {::},
+issn = {2278-7763},
+journal = {International Journal of Advancements in Research {\&} Technology},
+keywords = {Aerial image classification.,Convolutional neural networks,Deep Learning,Image Classification,Scene Classification},
+number = {6},
+title = {{Image Classification Using Convolutional Neural Networks}},
+url = {http://www.ijser.org},
+volume = {3},
+year = {2014}
+}
+@techreport{Ferwerda,
+abstract = {This paper describes three varieties of realism that need to be considered in evaluating computer graphics images and defines the criteria that need to be met if each kind of realism is to be achieved. The paper introduces a conceptual framework for thinking about realism in images, and describes a set of research tools for measuring image realism and assessing its value in graphics applications.},
+author = {Ferwerda, James A},
+file = {::},
+keywords = {computer graphics,human vision,realism,visual perception},
+title = {{Three Varieties of Realism in Computer Graphics}},
+url = {http://cin.ufpe.br/{~}in1123/material/vor{\_}hvei03{\_}v20.pdf}
+}
+@techreport{Lediga,
+abstract = {Despite the breakthroughs in accuracy and speed of single image super-resolution using faster and deeper con-volutional neural networks, one central problem remains largely unsolved: how do we recover the finer texture details when we super-resolve at large upscaling factors? The behavior of optimization-based super-resolution methods is principally driven by the choice of the objective function. Recent work has largely focused on minimizing the mean squared reconstruction error. The resulting estimates have high peak signal-to-noise ratios, but they are often lacking high-frequency details and are perceptually unsatisfying in the sense that they fail to match the fidelity expected at the higher resolution. In this paper, we present SRGAN, a generative adversarial network (GAN) for image super-resolution (SR). To our knowledge, it is the first framework capable of inferring photo-realistic natural images for 4× upscaling factors. To achieve this, we propose a perceptual loss function which consists of an adversarial loss and a content loss. The adversarial loss pushes our solution to the natural image manifold using a discriminator network that is trained to differentiate between the super-resolved images and original photo-realistic images. In addition, we use a content loss motivated by perceptual similarity instead of similarity in pixel space. Our deep residual network is able to recover photo-realistic textures from heavily downsampled images on public benchmarks. An extensive mean-opinion-score (MOS) test shows hugely significant gains in perceptual quality using SRGAN. The MOS scores obtained with SRGAN are closer to those of the original high-resolution images than to those obtained with any state-of-the-art method.},
+archivePrefix = {arXiv},
+arxivId = {1609.04802v5},
+author = {Ledig, Christian and Theis, Lucas and Husz{\'{a}}r, Ferenc and Caballero, Jose and Cunningham, Andrew and Acosta, Alejandro and Aitken, Andrew and Tejani, Alykhan and Totz, Johannes and Wang, Zehan and {Shi Twitter}, Wenzhe},
+eprint = {1609.04802v5},
+file = {::},
+title = {{Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network}},
+url = {https://arxiv.org/pdf/1609.04802.pdf}
+}
+@techreport{Chen,
+abstract = {1. Abstract We investigated the problem of image super-resolution, a classic and highly-applicable task in computer vision. Recently , super-resolution has been very successful at low up-scaling factors (2-4x) with GANs. In this paper, we proposed several methods to introduce auxiliary, conditional information into a super-resolution model to produce images more tuned to the human eye. We showed that our model, trained on the MNIST and CelebA datasets and conditioned on digits/facial attributes respectively, helped constrain the solution-space of the super-resolution task to produce more accurate upscaled images.},
+author = {Chen, Vincent and Puzon, Liezl and Wadsworth, Christina},
+file = {:home/agupta/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Chen, Puzon, Wadsworth - Unknown - Class-Conditional Superresolution with GANs.pdf:pdf},
+title = {{Class-Conditional Superresolution with GANs}},
+url = {http://cs231n.stanford.edu/reports/2017/pdfs/314.pdf}
+}
+@techreport{Goodfellow2017,
+abstract = {This report summarizes the tutorial presented by the author at NIPS 2016 on generative adversarial networks (GANs). The tutorial describes: (1) Why generative modeling is a topic worth studying, (2) how generative models work, and how GANs compare to other generative models, (3) the details of how GANs work, (4) research frontiers in GANs, and (5) state-of-the-art image models that combine GANs with other methods. Finally, the tutorial contains three exercises for readers to complete, and the solutions to these exercises.},
+archivePrefix = {arXiv},
+arxivId = {1701.00160v4},
+author = {Goodfellow, Ian},
+eprint = {1701.00160v4},
+file = {:home/agupta/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Goodfellow - 2017 - NIPS 2016 Tutorial Generative Adversarial Networks.pdf:pdf},
+pages = {1--57},
+title = {{NIPS 2016 Tutorial: Generative Adversarial Networks}},
+url = {http://www.iangoodfellow.com/slides/2016-12-04-NIPS.pdf},
+year = {2017}
+}
+@article{Kanaev2013,
+abstract = {Multi-frame super-resolution algorithms offer resolution enhancement for sequences of images with sampling limited resolution. However, classical approaches have been constrained by the accuracy of motion estimation while nonlocal approaches that use implicit motion estimation have attained only modest resolution improvement. In this paper, we propose a new multi-frame optical flow based super-resolution algorithm, which provides significant resolution enhancement for image sequences containing complex motion. The algorithm uses the standard camera image formation model and a variational super-resolution formulation with an anisotropic smoothness term adapting to local image structures. The key elements enabling super-resolution of complex motion patterns are the computation of two-way optical flow between the images and use of two corresponding uncertainty measures that approximate the optical flow interpolation error. Using the developed algorithm, we are able to demonstrate super-resolution of images for which optical flow estimation experiences near breakdown, due to the complexity of the motion patterns and the large magnitudes of the displacements. In comparison, we show that for these images some conventional super-resolution approaches fail, while others including nonlocal super-resolution technique produce distortions and provide lower (1-1.8dB) image quality enhancement compared to the proposed algorithm.},
+author = {Kanaev, A V and Miller, C W},
+doi = {10.1364/OE.21.019850},
+file = {:home/agupta/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kanaev et al. - 2013 - Image processing (100.6640) Superresolution (150.4620) Optical flow.pdf:pdf},
+isbn = {1094-4087 (Electronic) 1094-4087 (Linking)},
+issn = {1094-4087},
+journal = {Optics Express},
+number = {17},
+pages = {19850},
+pmid = {24105533},
+title = {{Multi-frame super-resolution algorithm for complex motion patterns}},
+url = {https://www.osapublishing.org/DirectPDFAccess/B916EF4D-C653-CEB9-B7ED99B8AA5A5097{\_}260337/oe-21-17-19850.pdf?da=1{\&}id=260337{\&}seq=0{\&}mobile=no https://www.osapublishing.org/abstract.cfm?URI=oe-21-17-19850},
+volume = {21},
+year = {2013}
+}
+@techreport{Kovalenko,
+author = {Kovalenko, Boris},
+file = {::},
+title = {{Super resolution with Generative Adversarial Networks}},
+url = {http://cs231n.stanford.edu/reports/2017/pdfs/17.pdf}
+}
+@article{Dong2016,
+abstract = {We propose a deep learning method for single image super-resolution (SR). Our method directly learns an end-to-end mapping between the low/high-resolution images. The mapping is represented as a deep convolutional neural network (CNN) that takes the low-resolution image as the input and outputs the high-resolution one. We further show that traditional sparse-coding-based SR methods can also be viewed as a deep convolutional network. But unlike traditional methods that handle each component separately, our method jointly optimizes all layers. Our deep CNN has a lightweight structure, yet demonstrates state-of-the-art restoration quality, and achieves fast speed for practical on-line usage. We explore different network structures and parameter settings to achieve trade-offs between performance and speed. Moreover, we extend our network to cope with three color channels simultaneously, and show better overall reconstruction quality.},
+archivePrefix = {arXiv},
+arxivId = {1501.00092},
+author = {Dong, Chao and Loy, Chen Change and He, Kaiming and Tang, Xiaoou},
+doi = {10.1109/TPAMI.2015.2439281},
+eprint = {1501.00092},
+file = {::},
+isbn = {978-1-4673-8851-1},
+issn = {01628828},
+journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+keywords = {Super-resolution,deep convolutional neural networks,sparse coding},
+pmid = {26761735},
+title = {{Image Super-Resolution Using Deep Convolutional Networks}},
+year = {2016}
+}
+@techreport{Freeman2002,
+abstract = {Polygon-based representations of 3D objects offer resolution independence over a wide range of scales. With this approach, object boundaries remain sharp when we zoom in on an object until very close range, where faceting appears due to finite polygon size (see Figure 1). However, constructing polygon models for complex, real-world objects can be difficult. Image-based rendering (IBR), a complementary approach for representing and rendering objects, uses cameras to obtain rich models directly from real-world data. Unfortunately, these representations no longer have resolution independence. When we enlarge a bitmapped image, we get a blurry result. Figure 2 shows the problem for an IBR version of a teapot image, rich with real-world detail. Standard pixel interpolation methods, such as pixel replication (Figures 2b and 2c) and cubic-spline interpolation (Fig-ures 2d and 2e), introduce artifacts or blur edges. For images enlarged three octaves (fac-tors of two) such as these, sharpening the interpolated result has little useful effect (Figures 2f and 2g). We call methods for achieving high-resolution enlargements of pixel-based images super-resolution algorithms. Many applications in graphics or image processing could benefit from such resolution independence , including IBR, texture mapping, enlarging consumer photographs, and converting NTSC video content to high-definition television. We built on another training-based super-resolution algorithm 1 and developed a faster and simpler algorithm for one-pass super-resolution. (The one-pass, example-based algorithm gives the enlargements in Figures 2h and 2i.) Our algorithm requires only a nearest-neighbor search in the training set for a vector derived from each patch of local image data. This one-pass super-resolution algorithm is a step toward achieving resolution independence in image-based representations. We don't expect perfect resolution independence-even the polygon representation doesn't have that-but increasing the resolution independence of pixel-based representations is an important task for IBR. Example-based approaches Super-resolution relates to image interpolation-how should we interpolate between the digital samples of a photograph? Researchers have long studied this problem , although only recently with machine learning or sampling approaches. (See the "Related Approaches" sidebar for more details.) Three complimentary ways exist for increasing an image's apparent resolution: 0272-1716/02/{\$}17.00 1 (a) When we model an object with traditional polygon techniques, it lacks some of the richness of real-world objects but behaves properly under enlargement. (b) The teapot's edge remains sharp when we enlarge it. (a) (b)},
+author = {Freeman, William T and Jones, Thouis R and Pasztor, Egon C},
+file = {:home/agupta/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Freeman, Jones, Pasztor - 2002 - Example-Based Super-Resolution.pdf:pdf},
+title = {{Example-Based Super-Resolution}},
+url = {http://www.altamira.com},
+year = {2002}
+}
