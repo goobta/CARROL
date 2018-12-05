@@ -1,0 +1,121 @@
+\section{Methods}
+
+\subsection{Overview}
+Most approaches to the Super Resolution problem (especially GANs) are run on
+datasets such as MNIST and CelebA. While those datasets excel at showing the
+differences in image quality, they are not very representative of the real
+world. In this problem, we attempt to tackle the super resolution of complex
+images by breaking down the process into multiple steps:
+
+\begin{enumerate}
+	\item Segment the images into known classes
+	\item Run the segmented images through a Super Resolution Conditional Generative Adversarial Network
+	\item Run the non-segmented parts of the image into a standard bicubic interpolation function
+	\item Merge the images together through [STICHTING METHOD]
+
+\end{enumerate}
+
+This process is illustrated by [FIGURE XXX]. By breaking the process up into smaller, more manageable chunks, one is able to take advantages of the different top-performing models. The following sections will go into greater detail on the reasons behind choosing the various methods and how they were implemented.
+
+\subsection{Dataset Selection}
+
+\subsection{Segmentation}
+
+\subsection{Super Resolution}
+\subsubsection{General Adversarial Networks}
+General Adversarial Networks (GANs) were first introduced by Goodfellow et al.
+in 2014 [GOODFELLOW 2014]. GANs were a new framework that trained generative
+models using an adversarial process. Under this framework, there are two models:
+a generative model G, which trains off of the data distribution, and a
+discriminative model D, which determines whether a sample is real or has been
+generated. Both of the models are trained simultaneously, resulting in a
+two-player game of sorts. In this game, G generates a sample and D tries to
+guess whether or not the sample is real or not. In order to beat D, G has to
+create samples that are closer to the data set. Conversely, in order to beat G,
+D has to become more selective on what is a truth or not. This back and forth
+process can intuitively be expressed as a generic 2-player minmax game:
+
+\begin{IEEEeqnarray}{rCl}
+	\min_{G}\max_{D}(D, G) = \nonumber\\
+	E_{x p_{data}}[\log(D(x))] + E_{z p_{z}(z)}[\log(1 - D(G(z)))]
+\end{IEEEeqnarray}
+
+\subsubsection{Conditional GANs}
+Mirza and Osindero improved upon Goodfellow et al.’s vanilla GAN by simply
+adding auxiliary features to inputted data [MIRZA 2014]. These “conditioning
+features” are added as inputs to both the discriminator and generator functions
+as well as labels to the data. These modifications can be seen in the following
+objective function:
+
+\begin{IEEEeqnarray}{rCl}
+	\min_G\max_D(D,G) = E_{x p_{data}}[\log(D(x|\mathbf{y}))] \nonumber\\
+	+ E_{z p_z(z)}[\log(1 - D(G(z|\mathbf{y})))]
+\end{IEEEeqnarray}
+
+In which the auxiliary feature vector is represented by $\mathbf{y}$. \\
+
+Mirza and Osindero were able to successfully generated MNIST digits conditioned
+on both the MNIST dataset and the respective class labels. [MIRZA 2014] \\
+
+
+\subsubsection{Super Resolution with CGANs}
+GANs are currently some of the top methods for super resolution and CGANs have
+been shown to work well in combining GANs and auxiliary information. Chen et al.
+combined the two ideas by using CGANs for image super resolution [CHEN]. In
+their report, Chen et al. introduce two methods of introducing new features into
+their Super Resolution GAN (SRGAN)[CHEN]:
+
+\begin{enumerate}
+	\item (SRCGAN) - Add the class information as another input feature.
+	\item (SRGAN + Class Loss) - Create an independant classifier whose purpose is
+		to determine if the generated image is of the correct class and factor that
+		into the objective function.
+\end{enumerate}
+
+In this project, an SRCGAN was chosen due to its demonstrated accuracy
+improvements over a vanilla GAN [CHEN]. As per Chen et Al.’s findings, the
+objective function for this model is as follows:
+
+\begin{IEEEeqnarray}{rCl}
+	\min_{\Theta_G}\max_{\Theta_D}(D, G) = \nonumber\\
+	E_{I^{HR}\sim p_{train}}(I^{HR})[\log(D_{\Theta_D}(I^{HR}, \mathbf{c}))] \nonumber\\
+	+ E_{I^{LR}\sim p_G(I^{LR})}[\log(1 - D_{\Theta_G}(G_{\Theta_G}(I^{LR},
+		\mathbf{c})), \mathbf{c})]
+\end{IEEEeqnarray}
+
+In which $\mathbf{c}$ is the conditional information, $D$ and $G$ are the
+updated discriminator and generator functions, and $I^{HR}$ and $I^{LR}$ are the
+high-resolution and low-resolution images, respectively.
+
+For the creation of the SRCGAN, Linder-Norén’s implementation of the SRGAN
+[LINDER NOREN] from Ledig et Al  was used as a bootstrap due to its success in
+photo-realistic super resolution [LEDIG]. The class information of the sample
+subject was then added as another feature to the input vector and the objective
+function was modified to account for the change in the feature space.
+
+While Chen et Al. discuss that using class data as auxillary inputs in the
+SRCGAN is trivial, they were only working on the MNIST and CelebA datasets
+[CHEN]. In this case, it is trivial to see how class information (such as
+“person”) would be a trivial feature to add, as all of the samples would share
+the same information [CHEN]. However, this application hosts a variety of
+different classes for subjects to be in, so including the class information
+plays a non-trivial role. \\
+
+\subsubsection{Bicubic Interpolation}
+While GANs have made impressive advances in image super resolution, they are not
+without fault. As Goodfellow discusses [GOODFELLOW NIPS], GANs tend to have
+issues when dealing with:
+
+\begin{itemize}
+	\item Counting
+	\item Perspective
+	\item Global Structures
+\end{itemize}
+
+While these drawbacks may be a bit more trivial when working on more restrictive
+datasets such as MNIST or CelebA, they become more of an ordeal when dealing
+with complex, multi-subject images. For that reason, the SR model chosen for the
+base images was Lukin et al.’s Bicubic Interpolation SR model from 2006 [LUKIN].
+The Bicubic Interpolation SR model has seen impressive results in a scaling
+factor of 2x and is now considered a baseline SR model. For this project,
+OpenCV’s bicubic interpolation implementation was used [OPENCV].
