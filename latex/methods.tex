@@ -110,7 +110,7 @@ their Super Resolution GAN (SRGAN)\cite{Chen}:
 
 \begin{enumerate}
 	\item (SRCGAN) - Add the class information as another input feature.
-	\item (SRGAN + Class Loss) - Create an independant classifier whose purpose is
+	\item (SRGAN + Class Loss) - Create an independent classifier whose purpose is
 		to determine if the generated image is of the correct class and factor that
 		into the objective function.
 \end{enumerate}
@@ -131,12 +131,12 @@ updated discriminator and generator functions, and $I^{HR}$ and $I^{LR}$ are the
 high-resolution and low-resolution images, respectively.
 
 For the creation of the SRCGAN, Linder-Norén’s implementation of the SRGAN
-\cite{Linder-Noren} from Ledig et Al  was used as a bootstrap due to its success in
+\cite{Linder-Noren} from Ledig et Al was used as a bootstrap due to its success in
 photo-realistic super resolution \cite{Ledig}. The class information of the sample
 subject was then added as another feature to the input vector and the objective
 function was modified to account for the change in the feature space.
 
-While Chen et Al. discuss that using class data as auxillary inputs in the
+While Chen et Al. discuss that using class data as auxiliary inputs in the
 SRCGAN is trivial, they were only working on the MNIST and CelebA datasets
 \cite{Chen}. In this case, it is trivial to see how class information (such as
 “person”) would be a trivial feature to add, as all of the samples would share
