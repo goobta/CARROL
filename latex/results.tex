@@ -53,3 +53,33 @@ PSNR is what is planned to be used in the measuring the final performance of the
 super-resolution algorithm. Unfortunately, at the time of writing this paper,
 the technique wasn’t in a state to present the PSNR results. These results will
 be available in the final iteration of this paper.
+
+\subsection{Stitching}
+Before undergoing image stitching, the subject images and background image are
+all separated as individual images. An example of this separation is shown
+below:
+
+[BACKGROUND IMAGE]
+[SUBJECT IMAGE X] [SUBJECT IMAGE X] [SUBJECT IMAGE X] ...
+
+From here, PIL is used to take the subject images and place them in their
+appropriate places on the background image. Their positions are determined from
+data provided by the image segmentation algorithm that gives the (x,y)
+coordinate of the specified subject image in the background image and the
+original subject image’s height and width dimensions. This reconstruction
+results in a single image, an example of which is demonstrated below:
+
+[RECONSTRUCTED IMAGE]
+
+Now that all the images are merged into one image, blurring along the shared
+edges between the subject images and background image needs to be done to make
+the entirety of the image look more natural. This is done using OpenCV’s image
+blurring functionality with a blur radius of (WIDTH, HEIGHT). The blurring is
+done in such a way as to make a smooth transition from the resolution of the
+subject images to the resolution of the background image. An example of the
+final product can be seen below:
+
+[IMAGE]
+
+More details about the results of the image stitching process will be available
+in the final iteration of this paper.
