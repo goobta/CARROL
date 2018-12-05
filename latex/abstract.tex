@@ -10,9 +10,9 @@ We addressed the classic computer vision problem of super-resolution. Most
 	images. The algorithm is set up to focus on the important parts of the image
 	that are deemed valuable to a human viewer. This is done by extracting those
 	subjects from the image and running a class-conditional Super-Resolution GAN
-	 (SRCGAN) on it. Our model, trained on a custom dataset generated from an open
-	source mp4 video, was able to produce images where the important subjects were
-	more emphasized in the image. This was done to account for the fact that the
+	 (SRCGAN) on it. Our model, trained on a custom data set generated from
+	source mp4 videos, was able to produce images where the important subjects were
+	more emphasized in the image. We generated our own dataset in order to account for the fact that the
 	segmentation model we are using is limited to certain types of classes. The
 	fidelity of the generated images is tested by using PSNR against the ground
 	truth.
