@@ -15,7 +15,21 @@ images by breaking down the process into multiple steps:
 
 \end{enumerate}
 
-This process is illustrated by [FIGURE XXX]. By breaking the process up into smaller, more manageable chunks, one is able to take advantages of the different top-performing models. The following sections will go into greater detail on the reasons behind choosing the various methods and how they were implemented.
+\begin{figure}
+	\centering
+	\includegraphics{images/intuition.png}
+	\caption{An example of how our technique would work end-to-end. The source
+	image (bottom right) would first be put through an Image Segmentation
+	algorithm to determine the different subjects in the image. Once the subjects
+	and their classes have been determined, they are then run through the SRCGAN.
+	In the meanwhile, the whole image is run through a bicubic interpolation. Once
+	the higher quality images have been formed, they are merged together through
+	the image stitching algorithm. Once the images have been stitched together,
+	the final image will be formed.}
+	\label{fig:intuition}
+\end{figure}
+
+This process is illustrated by Figure \ref{fig:intuition}. By breaking the process up into smaller, more manageable chunks, one is able to take advantages of the different top-performing models. The following sections will go into greater detail on the reasons behind choosing the various methods and how they were implemented.
 
 \subsection{Dataset Selection}
 

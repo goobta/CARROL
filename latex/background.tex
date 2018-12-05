@@ -1,9 +1,64 @@
 \section{Background}
 
-Super-resolution aims at generating a high-resolution (HR) image from a low-resolution (LR) image. Many different approaches have been tried out to carry out this task. Some of them are - minimizing mean squared error(MSE), Super Resolution Convolutional Neural Network (SRCNN) and Generative Adversarial Network (GAN). A Supervised Learning Algorithm is used to minimize the cost function which is the MSE between the generated image and ground truth. This itself is a convenient way to maximize the peak signal to noise ratio (PSNR).  As shown by Ledig et al.[1], this is not the most accurate way of comparison. There is a limitation to MSE capturing image features and perceptual relevant details as they are based on pixel-wise image difference. Interpolation is one other simpler technique that is used for super resolution[8]. An image is divided into multiple mathematical subspaces. Within these subspaces, interpolation is performed to fill in the missing pixel data and the final image is reconstructed from these subspaces. These approaches lack to account for a fundamental property of images. Pixels on a standalone basis don’t represent much. On the other hand, they represent features of the objects in the image when viewed with their neighbors. These approach lacks the acknowledgment of these features and does not produce photo-realistic images[2]. 
+Super-resolution aims at generating a high-resolution (HR) image from a
+low-resolution (LR) image. Many different approaches have been tried out to
+carry out this task. Some of them are - minimizing mean squared error(MSE),
+Super Resolution Convolutional Neural Network (SRCNN) and Generative Adversarial
+Network (GAN). A Supervised Learning Algorithm is used to minimize the cost
+function which is the MSE between the generated image and ground truth. This
+itself is a convenient way to maximize the peak signal to noise ratio (PSNR).
+As shown by Ledig et al.[1], this is not the most accurate way of comparison.
+There is a limitation to MSE capturing image features and perceptual relevant
+details as they are based on pixel-wise image difference. Interpolation is one
+other simpler technique that is used for super resolution[8]. An image is
+divided into multiple mathematical subspaces. Within these subspaces,
+interpolation is performed to fill in the missing pixel data and the final image
+is reconstructed from these subspaces. These approaches lack to account for a
+fundamental property of images. Pixels on a standalone basis don’t represent
+much. On the other hand, they represent features of the objects in the image
+when viewed with their neighbors. These approach lacks the acknowledgment of
+these features and does not produce photo-realistic images[2].
 
-A better approach then this is to use a modified version of Convolutional Neural Networks(CNN). CNN is the state of the art methods for image detection and classification[3,4,5]. CNNs comprise more than one convolutional layers followed by one or more fully connected layers to classify images. The architecture is designed to take advantage of the 2D structure of the image and the fact that images can be classified by features which are represented by the neighboring group of pixels. CNN consists of multiple convolutional layers with pooling layers separating them. One convolutional layer is formed from the previous layer by running a patch on the complete image and taking the dot product between the patch values and the image values covered. Each convolution layer consists of filters. The number of filters grows as the network grows. As the data is processed through the network, the convolutional layers get reduced in length and width but their depth increases. First few layers are able to identify low-level features like lines. Moving forward, mid-level features like arcs, curves, etc. are recognized. Finally, deep layers are able to recognize complex features. The approach of Super Resolution Convolutional Neural Network(SRCNN)[6] considers a convolutional neural network with an end-to-end mapping between low- and high-resolution images. It consists of three main steps: patch extraction and representation, non-linear mapping, and image reconstruction[6].
+A better approach then this is to use a modified version of Convolutional Neural
+Networks(CNN). CNN is the state of the art methods for image detection and
+classification[3,4,5]. CNNs comprise more than one convolutional layers followed
+by one or more fully connected layers to classify images. The architecture is
+designed to take advantage of the 2D structure of the image and the fact that
+images can be classified by features which are represented by the neighboring
+group of pixels. CNN consists of multiple convolutional layers with pooling
+layers separating them. One convolutional layer is formed from the previous
+layer by running a patch on the complete image and taking the dot product
+between the patch values and the image values covered. Each convolution layer
+consists of filters. The number of filters grows as the network grows. As the
+data is processed through the network, the convolutional layers get reduced in
+length and width but their depth increases. First few layers are able to
+identify low-level features like lines. Moving forward, mid-level features like
+arcs, curves, etc. are recognized. Finally, deep layers are able to recognize
+complex features. The approach of Super Resolution Convolutional Neural
+Network(SRCNN)[6] considers a convolutional neural network with an end-to-end
+mapping between low- and high-resolution images. It consists of three main
+steps: patch extraction and representation, non-linear mapping, and image
+reconstruction[6].
 
-Another widely accepted approach is to use Generative Adversarial Network for super-resolution[1]. For Super Resolution Generative Adversarial Network(SRGAN), the goal is to train a generating function G that estimates HR for the given LR image. The generative function is trained with a discriminator D that is trained to distinguish super-resolved images from real images. The goal is to train them so that D is no longer able to distinguish between the generated super-resolution images and the ground truth. Eventually, the generator learns to create images that are similar to the ground truth.
+Another widely accepted approach is to use Generative Adversarial Network for
+super-resolution[1]. For Super Resolution Generative Adversarial Network(SRGAN),
+the goal is to train a generating function G that estimates HR for the given LR
+image. The generative function is trained with a discriminator D that is trained
+to distinguish super-resolved images from real images. The goal is to train them
+so that D is no longer able to distinguish between the generated
+super-resolution images and the ground truth. Eventually, the generator learns
+to create images that are similar to the ground truth.
 
-The problem with the above-mentioned methods is that they look at the image as a whole. The intuition behind our idea is that each object in the image has its own unique features and those features should be maintained when we run super-resolution algorithms on them. We take sample images and run them through a Fully Convolutional Network(FCN). FCNs are the state of the art technique used for image segmentation. The output of the FCN is the segmented image. Using this output, images for each of the objects belonging to different classes are formed. These images are then given input to a Conditional GAN(CGAN). CGAN are a form of GAN which creates images based on the context provided. For example, if the input to this CGAN is ‘9’, it will produce images that it thinks resembles ‘9’. Each super-resolution image is then stitched back together to produce the complete super-resolution image. This process is explained in detail below in the methods. 
+The problem with the above-mentioned methods is that they look at the image as a
+whole. The intuition behind our idea is that each object in the image has its
+own unique features and those features should be maintained when we run
+super-resolution algorithms on them. We take sample images and run them through
+a Fully Convolutional Network(FCN). FCNs are the state of the art technique used
+for image segmentation. The output of the FCN is the segmented image. Using this
+output, images for each of the objects belonging to different classes are
+formed. These images are then given input to a Conditional GAN(CGAN). CGAN are a
+form of GAN which creates images based on the context provided. For example, if
+the input to this CGAN is ‘9’, it will produce images that it thinks resembles
+‘9’. Each super-resolution image is then stitched back together to produce the
+complete super-resolution image. This process is explained in detail below in
+the methods.
