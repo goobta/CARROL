@@ -5,7 +5,7 @@ Our method is also restricted by the limitations of SRCGAN’s. Since SRCGAN’s
 have a fixed nxn sized input, we have to either upscale or downscale our FCN
 output in order to pass it to the SRCGAN. Additionally, when we have long or
 tall subjects, like a giraffe, we need to pass additional background information
-that we know isn’t our subject into the SRCGAN \ref{fig:giraffe}, resulting in
+that we know isn’t our subject into the SRCGAN (as seen in Figure \ref{fig:giraffe}), resulting in
 noise when both training and running the SRCGAN.
 
 \begin{figure}
@@ -15,7 +15,8 @@ noise when both training and running the SRCGAN.
     \label{fig:giraffe}
 \end{figure}
 
-Another issue with our method is when multiple subjects overlap. Since we run our SRCGAN for each image we classify, any overlap is enhanced multiple times, causing unnecessary calculation \ref{fig:crossover}. As such, our method would not work well when the FCN classifiers more area as subjects than the size of the original image.
+
+Another issue with our method is when multiple subjects overlap. Since we run our SRCGAN for each image we classify, any overlap is enhanced multiple times, causing unnecessary calculation as seen in Figure \ref{fig:crossover}. As such, our method would not work well when the FCN classifiers more area as subjects than the size of the original image.
 
 \begin{figure}
     \centering
@@ -23,4 +24,9 @@ Another issue with our method is when multiple subjects overlap. Since we run ou
     \caption{If the FCN classifies the red area as one class and the blue are as another, the purple area is run through the SRCGAN twice.}
     \label{fig:crossover}
 \end{figure}
+
+
+\section{Future Work}
+
+Our goal for Context Aware Super Resolution is to one day use it for video compression. The end goal would be to have 
 
