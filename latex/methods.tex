@@ -58,35 +58,6 @@ often called deconvolutional layers. This part of the network deals with
 upsampling the image to its original size. The output at the end is a image
 associating each pixel with a class.
 
-\begin{figure}
-	\centering
-	
-	\begin{subfigure}[h]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{images/fcn-before.png}
-		\caption{The source image fed into Google's DeepLab FCN.}
-		\label{fig:fcn-before}
-	\end{subfigure}
-
-	\begin{subfigure}[h]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{images/fcn-segmap.png}
-		\caption{FCN's classification results. All of the subjects of interest are
-		in purple, while the background is black.}
-		\label{fig:fcn-segmap}
-	\end{subfigure}
-
-	\begin{subfigure}[h]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{images/fcn-overlay.png}
-		\caption{The FCN results overlayed on the original image.}
-		\label{fig:fcn-overlay}
-	\end{subfigure}
-
-	\caption{Google's DeepLab Fully Convolutional Network.}
-	\label{fig:fcn}
-\end{figure}
-
 We decided to use Google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
 this network to get a semantic segmentation output for the backgrounds and
 object of interest. These objects of interest are then cropped out as individual
