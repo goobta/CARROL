@@ -39,7 +39,7 @@ were created by splitting open source HD footage frame by frame. This allowed us
 to create large easy to label datasets with ease.
 
 \subsection{Segmentation}
-\subsubsection{Fully Convolutional Network}
+\subsubsection*{Fully Convolutional Network}
 
 Fully Convolutional Network (FCN) is one of the states of the art techniques for
 semantic segmentation. Semantic segmentation \cite{Liu2018} refers to the process of
@@ -87,7 +87,7 @@ associating each pixel with a class.
 	\label{fig:fcn}
 \end{figure}
 
-We decided to use google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
+We decided to use Google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
 semantic segmentation on 21 predefined classes. The dataset images are fed into
 this network to get a semantic segmentation output for the backgrounds and
 object of interest. These objects of interest are then cropped out as individual
