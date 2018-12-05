@@ -54,6 +54,46 @@ super-resolution algorithm. Unfortunately, at the time of writing this paper,
 the technique wasn’t in a state to present the PSNR results. These results will
 be available in the final iteration of this paper.
 
+\subsection{Semantic Segmentation}
+
+\begin{figure}
+	\centering
+	
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-before.png}
+		\caption{The source image fed into Google's DeepLab FCN.}
+		\label{fig:fcn-before}
+	\end{subfigure}
+
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-segmap.png}
+		\caption{FCN's classification results. All of the subjects of interest are
+		in purple, while the background is black.}
+		\label{fig:fcn-segmap}
+	\end{subfigure}
+
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-overlay.png}
+		\caption{The FCN results overlayed on the original image.}
+		\label{fig:fcn-overlay}
+	\end{subfigure}
+
+	\caption{Google's DeepLab Fully Convolutional Network.}
+	\label{fig:fcn}
+\end{figure}
+
+Our team used Google’s DeepLab FCN to perform semantic segmentation.
+In Figure \ref{fig:fcn}, subfigure \ref{fig:fcn-before} is the sample input image
+fed into the network. Subfigure \ref{fig:fcn-segmap} is the output of the FCN. 
+Using this output, the objects of
+interest are extracted out to be used as input for the SRCGAN. This process is
+carried out for all the images in the dataset. Along with the images, the top
+left coordinates of the cropped images are passed as well to aid in imaging
+stitching later on.
+
 \subsection{Stitching}
 Before undergoing image stitching, the subject images and background image are
 all separated as individual images. An example of this separation is shown
