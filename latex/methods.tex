@@ -33,7 +33,67 @@ This process is illustrated by Figure \ref{fig:intuition}. By breaking the proce
 
 \subsection{Dataset Selection}
 
+We opted to select datasets with one to three subjects in it in order present
+where our proposed solution would shine. The datasets we selected for training
+were created by splitting open source HD footage frame by frame. This allowed us
+to create large easy to label datasets with ease.
+
 \subsection{Segmentation}
+\subsubsection{Fully Convolutional Network}
+
+Fully Convolutional Network (FCN) is one of the states of the art techniques for
+semantic segmentation. Semantic segmentation \cite{Liu2018} refers to the process of
+associating each pixel in an image with a class label such as animals, roads,
+buildings, etc. FCNs build up on CNN. CNNs are very good for image
+classification data but they do not retain any spacial information with
+convolutions. All the features are detected but their locations in the image are
+not maintained. FCNs improve on this by just having convolutional layers. A
+typical FCN network consists of an encoder block, 1x1 convolutional layer,
+decoder block. The encoder block is pretty much the same as a CNN without the
+fully connected layers. It downsamples the image with each convolution and
+increases the feature maps. 1x1 convolutions are used to change the filter
+dimensionality (either increase it or decrease it) before sending it to the
+decoder block. The decoder block consists of transposed convolutional layers
+often called deconvolutional layers. This part of the network deals with
+upsampling the image to its original size. The output at the end is a image
+associating each pixel with a class.
+
+\begin{figure}
+	\centering
+	
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-before.png}
+		\caption{The source image fed into Google's DeepLab FCN.}
+		\label{fig:fcn-before}
+	\end{subfigure}
+
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-segmap.png}
+		\caption{FCN's classification results. All of the subjects of interest are
+		in purple, while the background is black.}
+		\label{fig:fcn-segmap}
+	\end{subfigure}
+
+	\begin{subfigure}[h]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/fcn-overlay.png}
+		\caption{The FCN results overlayed on the original image.}
+		\label{fig:fcn-overlay}
+	\end{subfigure}
+
+	\caption{Google's DeepLab Fully Convolutional Network.}
+	\label{fig:fcn}
+\end{figure}
+
+We decided to use google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
+semantic segmentation on 21 predefined classes. The dataset images are fed into
+this network to get a semantic segmentation output for the backgrounds and
+object of interest. These objects of interest are then cropped out as individual
+images to be fed into the super-resolution algorithm. The intact background is
+passed forwards as well to the further methods.
+
 
 \subsection{Super Resolution}
 \subsubsection{General Adversarial Networks}
@@ -133,3 +193,22 @@ base images was Lukin et al.’s Bicubic Interpolation SR model from 2006
 \cite{Lukin2006}. The Bicubic Interpolation SR model has seen impressive results in a scaling
 factor of 2x and is now considered a baseline SR model. For this project,
 OpenCV’s bicubic interpolation implementation was used \cite{Bradski2000}.
+
+\subsection{Image Stitching}
+One side-effect of the processes described in this paper is that the subjects of
+the image and the background are separated. As a result, the images need to be
+stitched back together into one final product image. Python’s OpenCV library and
+PIL (Python Imaging Library) are utilized to accomplish this task. Provided the
+(x,y) coordinate and (width, height) of the extracted subject image from the
+original image, PIL inserts the new subject images back into the main image at
+their original locations. The data for this operation is retrieved during the
+image segmentation process.
+
+However, a simple copy/paste procedure wouldn’t be enough to truly recreate an
+image. Since the background image and the subject images have different
+resolutions, the combined image has the possibility of looking somewhat awkward
+on the edge of the background and subject image from the sudden change in
+resolution. OpenCV has functionality that can be implemented to blur parts of an
+image with a certain intensity, which is used here to blur along the shared
+edges with different intensity such that the transition from the background
+image to subject image looks more natural.

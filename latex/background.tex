@@ -7,21 +7,21 @@ Super Resolution Convolutional Neural Network (SRCNN) and Generative Adversarial
 Network (GAN). A Supervised Learning Algorithm is used to minimize the cost
 function which is the MSE between the generated image and ground truth. This
 itself is a convenient way to maximize the peak signal to noise ratio (PSNR).
-As shown by Ledig et al.[1], this is not the most accurate way of comparison.
+As shown by Ledig et al.\cite{Ledig}, this is not the most accurate way of comparison.
 There is a limitation to MSE capturing image features and perceptual relevant
 details as they are based on pixel-wise image difference. Interpolation is one
-other simpler technique that is used for super resolution[8]. An image is
+other simpler technique that is used for super resolution\cite{Siu}. An image is
 divided into multiple mathematical subspaces. Within these subspaces,
 interpolation is performed to fill in the missing pixel data and the final image
 is reconstructed from these subspaces. These approaches lack to account for a
 fundamental property of images. Pixels on a standalone basis don’t represent
 much. On the other hand, they represent features of the objects in the image
 when viewed with their neighbors. These approach lacks the acknowledgment of
-these features and does not produce photo-realistic images[2].
+these features and does not produce photo-realistic images\cite{Ferwerda}.
 
 A better approach then this is to use a modified version of Convolutional Neural
 Networks(CNN). CNN is the state of the art methods for image detection and
-classification[3,4,5]. CNNs comprise more than one convolutional layers followed
+classification\cite{Krizhevsky, Jaswal2014}. CNNs comprise more than one convolutional layers followed
 by one or more fully connected layers to classify images. The architecture is
 designed to take advantage of the 2D structure of the image and the fact that
 images can be classified by features which are represented by the neighboring
@@ -35,13 +35,13 @@ length and width but their depth increases. First few layers are able to
 identify low-level features like lines. Moving forward, mid-level features like
 arcs, curves, etc. are recognized. Finally, deep layers are able to recognize
 complex features. The approach of Super Resolution Convolutional Neural
-Network(SRCNN)[6] considers a convolutional neural network with an end-to-end
+Network(SRCNN)\cite{Long} considers a convolutional neural network with an end-to-end
 mapping between low- and high-resolution images. It consists of three main
 steps: patch extraction and representation, non-linear mapping, and image
-reconstruction[6].
+reconstruction\cite{Long}.
 
 Another widely accepted approach is to use Generative Adversarial Network for
-super-resolution[1]. For Super Resolution Generative Adversarial Network(SRGAN),
+super-resolution\cite{Ledig}. For Super Resolution Generative Adversarial Network(SRGAN),
 the goal is to train a generating function G that estimates HR for the given LR
 image. The generative function is trained with a discriminator D that is trained
 to distinguish super-resolved images from real images. The goal is to train them
