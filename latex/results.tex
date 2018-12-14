@@ -39,20 +39,19 @@ These results will be available in the final revision of this report.
 	\caption{Results of the SRCGAN when run on the CelebA dataset after 6900
 	iterations. The images on the left are the inputted images, alongside class
 	information, the images in the middle are generated images, and the image on
-	the right are the ground truth}
+	the right are the ground truth.}
 	\label{fig:gan-res}
 \end{figure}
 
-The results for the SRCGAN are shown in \ref{fig:gan-res}. The specific model was
+The results for the SRCGAN are shown in Figure \ref{fig:gan-res}. The specific model was
 trained for 6900 iterations. As shown in the figure, the GANs tends to perform
 well in creating an image which has similar semantics to the ground truth. In
-fact, if one didn’t know about the existence of the ground truth, it is entirely
+fact, if one didn't know about the existence of the ground truth, it is entirely
 possible to believe that the generated image isn’t fake.
 
 PSNR is what is planned to be used in the measuring the final performance of the
 super-resolution algorithm. Unfortunately, at the time of writing this paper,
-the technique wasn’t in a state to present the PSNR results. These results will
-be available in the final iteration of this paper.
+the technique wasn’t in a state to present the PSNR results. 
 
 \subsection{Semantic Segmentation}
 
@@ -96,30 +95,21 @@ stitching later on.
 
 \subsection{Stitching}
 Before undergoing image stitching, the subject images and background image are
-all separated as individual images. An example of this separation is shown
-below:
+all separated as individual images. An example of this can be seen in Figure
+\ref{fig:fcn}.
 
-[BACKGROUND IMAGE]
-[SUBJECT IMAGE X] [SUBJECT IMAGE X] [SUBJECT IMAGE X] ...
-
-From here, PIL is used to take the subject images and place them in their
+From here, PIL will used to take the subject images and place them in their
 appropriate places on the background image. Their positions are determined from
-data provided by the image segmentation algorithm that gives the (x,y)
+data provided by the image segmentation algorithm that gives the $(x,y)$
 coordinate of the specified subject image in the background image and the
 original subject image’s height and width dimensions. This reconstruction
-results in a single image, an example of which is demonstrated below:
+should result in a single image.
 
-[RECONSTRUCTED IMAGE]
-
-Now that all the images are merged into one image, blurring along the shared
+Once all of the images are merged, blurring along the shared
 edges between the subject images and background image needs to be done to make
 the entirety of the image look more natural. This is done using OpenCV’s image
-blurring functionality with a blur radius of (WIDTH, HEIGHT). The blurring is
+blurring functionality with a blur radius of $(WIDTH, HEIGHT)$. The blurring is
 done in such a way as to make a smooth transition from the resolution of the
-subject images to the resolution of the background image. An example of the
-final product can be seen below:
-
-[IMAGE]
-
-More details about the results of the image stitching process will be available
-in the final iteration of this paper.
+subject images to the resolution of the background image. Unfortunately, our
+group wasn't able to fully get this process working and thus don't have any
+examples to show of this method.
