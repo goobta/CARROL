@@ -13,13 +13,13 @@ details as they are based on pixel-wise image difference. Interpolation is one
 other simpler technique that is used for super resolution\cite{Siu}. An image is
 divided into multiple mathematical subspaces. Within these subspaces,
 interpolation is performed to fill in the missing pixel data and the final image
-is reconstructed from these subspaces. These approaches lack to account for a
+is reconstructed from these subspaces. These approaches lack to account for a:wq
 fundamental property of images. Pixels on a standalone basis don’t represent
 much. On the other hand, they represent features of the objects in the image
 when viewed with their neighbors. These approach lacks the acknowledgment of
 these features and does not produce photo-realistic images\cite{Ferwerda}.
 
-A better approach then this is to use a modified version of Convolutional Neural
+A better approach than this is to use a modified version of Convolutional Neural
 Networks(CNN). CNN is the state of the art methods for image detection and
 classification\cite{Krizhevsky, Jaswal2014}. CNNs comprise more than one convolutional layers followed
 by one or more fully connected layers to classify images. The architecture is

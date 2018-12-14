@@ -1,8 +1,8 @@
 \section{Conclusion}
 
-In theory, with our method we achieve the best of both worlds: having access to the power of SRCGAN’s for the more important parts of the images we superresolution while saving on computation costs by not training on as much noise. However, due to not having the hardware to train an FCN and using third party libraries, our current end product has to re-calculate various values.
+In theory, with our method we achieve the best of both worlds: having access to the power of SRCGAN’s for the more important parts of the images we enhance while saving on computation costs by not training on as much noise. However, due to not having the hardware to train an FCN and using third party libraries, our current end product has to re-calculate various values.
 Our method is also restricted by the limitations of SRCGAN’s. Since SRCGAN’s
-have a fixed nxn sized input, we have to either upscale or downscale our FCN
+have a fixed $n/x/n$ sized input, we have to either upscale or downscale our FCN
 output in order to pass it to the SRCGAN. Additionally, when we have long or
 tall subjects, like a giraffe, we need to pass additional background information
 that we know isn’t our subject into the SRCGAN (as seen in Figure \ref{fig:giraffe}), resulting in
@@ -29,7 +29,7 @@ Another issue with our method is when multiple subjects overlap. Since we run ou
 \section{Future Work}
 
 Our goal for Context Aware Super Resolution is to one day use it for video
-compression. The end goal would be to have . While current research has shown
+compression. While current research has shown
 potential for video compression using super resolution, nothing pratical has yet
 to be created \cite{Molina,Kappeler2016}. We hope to create a refined version of our method that
 could potentially be used for compression videos with a low subject count
