@@ -37,7 +37,9 @@ We opted to select datasets with one to three subjects in it in order present
 where our proposed solution would shine. The datasets we selected for training
 were created by splitting open source HD footage frame by frame. This allowed us
 to create large easy to label datasets with ease. The final datasets had between 
-300-400 images each
+300-400 images each at 1080x1920 pixels. 
+
+
 
 \subsection{Segmentation}
 \subsubsection*{Fully Convolutional Network}
@@ -59,9 +61,9 @@ often called deconvolutional layers. This part of the network deals with
 upsampling the image to its original size. The output at the end is a image
 associating each pixel with a class.
 
-We decided to use Google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able to perform
-this network to get a semantic segmentation output for the backgrounds and
-object of interest. These objects of interest are then cropped out as individual
+We decided to use Google’s pre-trained DeepLab FCN \cite{Chen2017}. It is able 
+to perform semantic segmentation output for the backgrounds and
+objects of interest. These objects of interest are then cropped out as individual
 images to be fed into the super-resolution algorithm. The intact background is
 passed forwards as well to the further methods.
 
