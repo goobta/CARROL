@@ -184,3 +184,27 @@ resolution. OpenCV has functionality that can be implemented to blur parts of an
 image with a certain intensity, which is used here to blur along the shared
 edges with different intensity such that the transition from the background
 image to subject image looks more natural.
+
+
+\subsection{Peak Signal-to-Noise Ratio}
+
+We use peak signal-to-noise ratio (PSNR) in order to determine the quality of our 
+super-resolutioned results. PSNR is defined as the mean squared error of an image 
+and is as followed:
+
+\[\]
+\begin{IEEEeqnarray}{rCl}
+    \dfrac{1}{mn}
+    \sum_{i=0}^{m-1}
+    \sum_{i=0}^{n-1}
+    [I(i,j) - K (i,j)]^2
+\end{IEEEeqnarray}
+
+Where m and n are the coordinates of the image, I(i,j) is the pixel value of 
+the original image and K(i,j) is the pixel value of the created image. This
+allows us to relatively easily compare the quality of our created image to
+the original. 
+
+
+
+
