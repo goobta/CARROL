@@ -15,9 +15,9 @@ images by breaking down the process into multiple steps:
 
 \end{enumerate}
 
-\begin{figure}
+\begin{figure*}
 	\centering
-	\includegraphics{images/intuition.png}
+	\includegraphics[width=\textwidth]{images/intuition.png}
 	\caption{An example of how our technique would work end-to-end. The source
 	image (bottom right) would first be put through an Image Segmentation
 	algorithm to determine the different subjects in the image. Once the subjects
@@ -27,7 +27,7 @@ images by breaking down the process into multiple steps:
 	the image stitching algorithm. Once the images have been stitched together,
 	the final image will be formed.}
 	\label{fig:intuition}
-\end{figure}
+\end{figure*}
 
 This process is illustrated by Figure \ref{fig:intuition}. By breaking the process up into smaller, more manageable chunks, one is able to take advantages of the different top-performing models. The following sections will go into greater detail on the reasons behind choosing the various methods and how they were implemented.
 
